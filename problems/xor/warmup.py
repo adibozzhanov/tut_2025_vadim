@@ -10,7 +10,7 @@ print("{:04b}".format(a ^ b))
 # Task 1: swap 2 variables
 # rules:
 # - You cannot create new variables
-# - You cannot use inline multiple assignment syntax i.e. a,b = 13, 15
+# - You cannot use inline multiple assignment syntax i.e. a,b = b, a
 # - You have to use XOR in some way
 
 _a, _b = random.randint(0,1000), random.randint(0,1000)
@@ -18,8 +18,10 @@ a, b = _a, _b
 print(f"BEFORE: {a}, {b}")
 # v CODE GOES HERE v
 # ==================
-
-# =================
+a ^= b # D - DIFF
+b ^= a # B ^ D -> A
+a ^= b # D ^ A -> B
+# ==================
 print(f"AFTER: {a}, {b}")
 assert a == _b
 assert b == _a
