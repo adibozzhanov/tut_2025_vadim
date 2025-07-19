@@ -11,7 +11,6 @@ Note: Please do not copy the description during the contest to maintain the inte
 """
 
 def solve(nums: list[int], k: int) -> int:
-    # Step 1: Prefix XOR
     n = len(nums)
     pfix = [0] * (n + 1)
     for i in range(1, n + 1):
@@ -19,7 +18,7 @@ def solve(nums: list[int], k: int) -> int:
 
     dp = [[float('inf')] * (k + 1) for _ in range(n + 1)]
     for i in range(n + 1):
-        dp[i][1] = pfix[i]  # Base case: 1 partition
+        dp[i][1] = pfix[i]
     
     for parts in range(2, k + 1):
         for end in range(parts, n + 1):
